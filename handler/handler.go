@@ -22,7 +22,12 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = tmpl.Execute(w, nil)
+	data := map[string]interface{}{
+		"title":   "I'm learning golang web development",
+		"content": 900,
+	}
+
+	err = tmpl.Execute(w, data)
 
 	if err != nil {
 		log.Println(err)
